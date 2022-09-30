@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1095491118733",
+    "project_id": "finaltsa",
+    "storage_bucket": "finaltsa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095491118733:android:d110a1d45ea9273566a4c4",
+        "android_client_info": {
+          "package_name": "com.example.slide1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095491118733-b198o68hs1phulolglajbn0gqj6b4fj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3DZCkaVM7d5w2bZR9TwNyczx9vvn0GWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095491118733-b198o68hs1phulolglajbn0gqj6b4fj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
