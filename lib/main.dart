@@ -1,12 +1,7 @@
 //import 'package:slide1/theme.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:slide1/Pages/login.dart';
-import 'package:slide1/Pages/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:slide1/Pages/welcom_screen.dart';
-import 'package:firebase_database/firebase_database.dart';
-
 import 'firebase_options.dart';
 
 void main() async {

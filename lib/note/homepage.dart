@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:slide1/note/addnote.dart';
 import 'package:slide1/note/nootepad.dart';
 
-import '../notepad/appStyle.dart';
+import '../note/appStyle.dart';
 
 class HomePagee extends StatefulWidget {
   @override

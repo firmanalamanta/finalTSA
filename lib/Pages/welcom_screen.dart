@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:slide1/Pages/login.dart';
+import 'package:slide1/Pages/main_page.dart';
 import 'package:slide1/warna.dart';
 
 class WelcomScreen extends StatelessWidget{
-  @override 
+  @override
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -38,13 +39,13 @@ class WelcomScreen extends StatelessWidget{
               child: TextButton(
                 onPressed: () => Navigator.push(context,
                   MaterialPageRoute(
-                    builder:(context) => LoginPage(),
+                    builder:(context) => MainPage(),
                 ),
               ),
               child: Row(
                 children: [
                   Text("Next",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(
                     color: Theme.of(context)
                       .textTheme
                       .bodyText1

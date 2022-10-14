@@ -1,37 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:slide1/Pages/register_page.dart';
 
 class LoginPage extends StatefulWidget{
-  const LoginPage ({Key? key}): super(key: key);
+  final VoidCallback showRegisterPage;
+  const LoginPage ({Key key, this.showRegisterPage}): super(key: key); // kurang required
 
-  @override 
+  @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>{
+class _LoginPageState extends State<LoginPage> {
 
   //text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   // untuk mengecek akun user
-  Future SignIn() async{
+  Future SignIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(),
       password: _passwordController.text.trim(),
-      );
+    );
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
-  @override 
+  @override
+
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.white,
@@ -41,10 +42,10 @@ class _LoginPageState extends State<LoginPage>{
             child:Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-                Image.asset('images/pomi.png'),
-            SizedBox(height: 75),
+              Image.asset('images/pomi.png'),
+            SizedBox(height: 70),
             Text(
-              'safety first',
+              'Safety first.',
               style: GoogleFonts.actor(fontSize: 30),
             ),
             SizedBox(height: 10),
@@ -60,17 +61,21 @@ class _LoginPageState extends State<LoginPage>{
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-                controller: _emailController, 
+                controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.cyan),
                     borderRadius: BorderRadius.circular(12),
                   ),
                 hintText: 'Email',
                 fillColor: Colors.grey[200],
                 filled: true,
                 ),
-              ), 
+              ),
             ),
             SizedBox(height: 10),
 
@@ -86,14 +91,14 @@ class _LoginPageState extends State<LoginPage>{
                     borderRadius: BorderRadius.circular(12),
                   ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
+                  borderSide: BorderSide(color: Colors.cyan),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 hintText: 'Password',
                 fillColor: Colors.grey[200],
                 filled: true,
                 ),
-              ), 
+              ),
             ),
 
             //button login
@@ -105,7 +110,7 @@ class _LoginPageState extends State<LoginPage>{
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.cyan[600],
                       borderRadius: BorderRadius.circular(12),
                     ),
                   child: Center(
@@ -133,24 +138,42 @@ class _LoginPageState extends State<LoginPage>{
                  ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
-                  },
+                  onTap:widget.showRegisterPage,
                   child: Text(
                   'Register now',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.cyan[600],
                   fontWeight: FontWeight.bold,
                   ),
-                  ), 
+                  ),
                 ),
               ],
             ),
             ],
           ),
-        ), 
+        ),
         ),
       ),
     );
   }
+  // Widget content() {
+  //   return Column(
+  //     children: [
+  //       Container(
+  //         height: 20,
+  //         width: double.infinity,
+  //         decoration: BoxDecoration(
+  //           color: Colors.white,
+  //           borderRadius: BorderRadius.only(
+  //             bottomRight: Radius.elliptical(100, 100),
+  //           ),
+  //         ),
+  //         child: Padding(
+  //           padding: const EdgeInsets.only(top: 10.0),
+  //           child: Image.asset('images/pomi.png'),
+  //         ),
+  //       )
+  //     ],
+  //   );
+  // }
 }

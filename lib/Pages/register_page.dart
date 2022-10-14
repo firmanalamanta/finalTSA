@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatefulWidget{
-  const RegisterPage ({Key? key}) : super(key: key);
+  final VoidCallback showLoginPage;
+  const RegisterPage ({Key key, this.showLoginPage}) : super(key: key); // kurang required
 
   @override 
   State<RegisterPage> createState() => _RegisterPageState();
@@ -28,25 +29,25 @@ class _RegisterPageState extends State<RegisterPage>{
     _passwordController.dispose();
     super.dispose();
   }
-
-  @override 
+  @override
   Widget build(BuildContext context){
-        return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
                 Image.asset('images/pomi.png'),
             SizedBox(height: 75),
             Text(
-              'Hello There',
+              'Hello there.',
               style: GoogleFonts.actor(fontSize: 30),
             ),
             SizedBox(height: 10),
             Text(
-              'Register below with your details!',
+              'register below with your email!',
               style: TextStyle(
                 fontSize: 18,
               ),
@@ -57,17 +58,21 @@ class _RegisterPageState extends State<RegisterPage>{
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-                controller: _emailController, 
+                controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.cyan),
                     borderRadius: BorderRadius.circular(12),
                   ),
                 hintText: 'Email',
                 fillColor: Colors.grey[200],
                 filled: true,
                 ),
-              ), 
+              ),
             ),
             SizedBox(height: 10),
 
@@ -82,14 +87,14 @@ class _RegisterPageState extends State<RegisterPage>{
                     borderRadius: BorderRadius.circular(12),
                   ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
+                  borderSide: BorderSide(color: Colors.cyan),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 hintText: 'Password',
                 fillColor: Colors.grey[200],
                 filled: true,
                 ),
-              ), 
+              ),
             ),
 
             //button login
@@ -101,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage>{
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.cyan[600],
                       borderRadius: BorderRadius.circular(12),
                     ),
                   child: Center(
@@ -117,9 +122,31 @@ class _RegisterPageState extends State<RegisterPage>{
                   ),
               ),
             ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('I am a member ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap:widget.showLoginPage,
+                    child: Text(
+                      'Login now',
+                      style: TextStyle(
+                        color: Colors.cyan[600],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
-        ) 
+        ),
+      ),
       ),
     );
   }

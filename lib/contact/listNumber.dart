@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:lottie/lottie.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:slide1/contact/info.dart';
 import 'package:slide1/contact/nomor.dart';
 
 class listNumber extends StatefulWidget {
@@ -19,7 +17,7 @@ class _listNumberState extends State<listNumber>{
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Call Center Departement'),
+        title: Text('Call Center'),
         backgroundColor: Colors.orangeAccent,
         // elevation: 0,
       ),
@@ -29,7 +27,7 @@ class _listNumberState extends State<listNumber>{
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text("Geser untuk menelepon"),
+              child: Text("Gunakan layanan telepon darurat jika membutuhkan bantuan misalnya terjadi \nkecelakaan atau dalam keadaan darurat!"),
             ),
             Divider(),
             Expanded(
@@ -42,26 +40,16 @@ class _listNumberState extends State<listNumber>{
                     actionExtentRatio: 0.25,
                     child: ListTile(
                       tileColor:
-                      (c.isFavorite) ? Colors.blue.shade100 : Colors.white,
+                      (c.isFavorite) ? Colors.blue : Colors.white,
                       leading: Icon(Icons.person),
                       title: Text("${c.name}"),
                       subtitle: Text("${c.number}"),
                     ),
                     actions: [
                       IconSlideAction(
-                        caption: 'info',
-                        color: Colors.blue,
-                        icon: Icons.info,
-                        onTap: () {
-                          setState(() {
-                            info(context);
-                          });
-                        },
-                      ),
-                      IconSlideAction(
                         caption: 'Phone',
                         color: Colors.green,
-                        icon: Icons.delete,
+                        icon: Icons.call,
                         onTap: () {
                           setState(() {
                             FlutterPhoneDirectCaller.callNumber("${c.number}");
