@@ -1,6 +1,7 @@
 //import 'package:slide1/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:slide1/Pages/login.dart';
 import 'package:slide1/Pages/welcom_screen.dart';
 import 'firebase_options.dart';
 

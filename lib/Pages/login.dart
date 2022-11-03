@@ -30,9 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.dispose();
     super.dispose();
   }
-
   @override
-
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.white,
@@ -74,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: 'Email',
                 fillColor: Colors.grey[200],
                 filled: true,
-                ),
+                ) ,
               ),
             ),
             SizedBox(height: 10),
@@ -156,24 +154,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  // Widget content() {
-  //   return Column(
-  //     children: [
-  //       Container(
-  //         height: 20,
-  //         width: double.infinity,
-  //         decoration: BoxDecoration(
-  //           color: Colors.white,
-  //           borderRadius: BorderRadius.only(
-  //             bottomRight: Radius.elliptical(100, 100),
-  //           ),
-  //         ),
-  //         child: Padding(
-  //           padding: const EdgeInsets.only(top: 10.0),
-  //           child: Image.asset('images/pomi.png'),
-  //         ),
-  //       )
-  //     ],
-  //   );
-  // }
 }
